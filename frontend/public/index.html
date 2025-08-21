@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Viewer • WebRTC Detection</title>
+<link rel="stylesheet" href="style.css"/>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm@4.20.0/dist/tf-backend-wasm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+<script src="/env.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Viewer</h1>
+
+    <!-- two-column layout: video+overlay on left, QR on right -->
+    <div class="layout">
+      <div class="stage">
+        <video id="remote" playsinline autoplay muted></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <aside class="side">
+        <div class="qrCard">
+          <img id="qr" alt="Scan to open publisher"/>
+          <div class="qrCaption">Scan to open publisher</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="controls">
+      <button id="connectBtn">Connect</button>
+      <button id="startBench">Start Benchmark</button>
+      <select id="modeSel">
+        <option value="wasm">wasm</option>
+        <option value="server">server</option>
+      </select>
+      <span id="stat"></span>
+    </div>
+
+    <pre id="log"></pre>
+  </div>
+  <script type="module" src="viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "duration": 30,
+  "mode": "wasm",
+  "median_e2e_ms": 63,
+  "p95_e2e_ms": 138,
+  "median_server_ms": 0,
+  "p95_server_ms": 0,
+  "median_network_ms": 0,
+  "p95_network_ms": 0,
+  "processed_fps": 15,
+  "uplink_kbps": 0,
+  "downlink_kbps": 0,
+  "ts": 1755794258196
+}

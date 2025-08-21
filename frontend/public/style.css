@@ -1,0 +1,70 @@
+/* base */
+body{font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0;padding:0;background:#0b1020;color:#e6e6e6}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+h1{font-weight:600;margin:8px 0 12px 0}
+
+.controls{margin:10px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{background:#1f6feb;border:none;color:#fff;padding:8px 12px;border-radius:10px;cursor:pointer}
+select{padding:6px 8px;border-radius:8px;background:#111;color:#eee;border:1px solid #333}
+#log{white-space:pre-wrap;background:#0e142b;border-radius:10px;padding:10px;min-height:60px}
+
+/* two-column layout: viewer left, QR right */
+.layout{
+  display:grid;
+  grid-template-columns: 1fr 300px;
+  gap:16px;
+  align-items:start;
+  margin-bottom:12px;
+}
+@media (max-width: 900px){
+  .layout{grid-template-columns: 1fr}
+}
+
+/* horizontal viewer: fixed 16:9 stage with canvas overlay */
+.stage{
+  position:relative;
+  width:100%;
+  aspect-ratio: 16 / 9;     /* horizontal stage */
+  border-radius:12px;
+  background:#111;
+  overflow:hidden;
+}
+.stage video{
+  width:100%;
+  height:100%;
+  object-fit: contain;       /* keep full frame (use 'cover' to fill/crop) */
+  display:block;
+  border-radius:12px;
+  background:#111;
+}
+.stage canvas{
+  position:absolute;
+  inset:0;                   /* top/right/bottom/left: 0 */
+  width:100%;
+  height:100%;
+  pointer-events:none;       /* clicks pass through */
+  border-radius:12px;
+  background:transparent;
+}
+
+/* QR card + caption on the side */
+.side{}
+.qrCard{
+  background:#0e142b;
+  border:1px solid #1b244a;
+  border-radius:12px;
+  padding:12px;
+}
+.qrCard img{
+  width:100%;
+  height:auto;
+  display:block;
+  background:#111;
+  border-radius:8px;
+}
+.qrCaption{
+  text-align:center;
+  font-size:14px;
+  color:#cfd8ff;
+  margin-top:8px;
+}

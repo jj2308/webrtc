@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build: ./frontend
+    environment:
+      - MODE=${MODE:-wasm}
+      - PORT=${PORT:-3000}
+    ports:
+      - "${PORT:-3000}:3000"   # no IP hardcoded
+    volumes:
+      - ./data:/data
+
+  backend:
+    build: ./backend
+    environment:
+      - OMP_NUM_THREADS=1
+      - MKL_NUM_THREADS=1
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./data:/data
